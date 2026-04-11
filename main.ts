@@ -32,7 +32,7 @@ namespace mqlib {
     }
 
     /**
-     * tft显示字符串（多汉字）
+     * oled显示字符串（多汉字）
      */
     //% subcategory="oled"
     //% group='oled-汉字库'
@@ -66,10 +66,9 @@ namespace mqlib {
         pins.i2cWriteBuffer(OLED_ADDR, buf);
     }
 
-    // OLED 初始化
     //% subcategory="oled"
     //% group='oled-汉字库'
-    //% block
+    //% block='oled初始化'
     export function oledInit() {
         oledCmd(0xAE);
         oledCmd(0xD5); oledCmd(0x80);
@@ -89,10 +88,9 @@ namespace mqlib {
         oledCmd(0xAF);
     }
 
-    // 清屏
     //% subcategory="oled"
     //% group='oled-汉字库'
-    //% block
+    //% block='oled清屏'
     export function oledClear() {
         for (let p = 0; p < 8; p++) {
             oledCmd(0xB0 + p);
