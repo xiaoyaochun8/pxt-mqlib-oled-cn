@@ -36,6 +36,7 @@ namespace mqlib {
      */
     //% subcategory="oled"
     //% group='oled-汉字库'
+    //% weight=98
     //% block="oled屏显示中文 $str 在位置x: $x, y: $y"
     export function oledShowCN(
         x: number,
@@ -68,6 +69,7 @@ namespace mqlib {
 
     //% subcategory="oled"
     //% group='oled-汉字库'
+    //% weight=100
     //% block='oled初始化'
     export function oledInit() {
         oledCmd(0xAE);
@@ -90,6 +92,7 @@ namespace mqlib {
 
     //% subcategory="oled"
     //% group='oled-汉字库'
+    //% weight=99
     //% block='oled清屏'
     export function oledClear() {
         for (let p = 0; p < 8; p++) {
