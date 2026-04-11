@@ -38,6 +38,8 @@ namespace mqlib {
     //% group='oled-汉字库'
     //% weight=98
     //% block="oled屏显示中文 $str 在位置x: $x, y: $y"
+    //% x.min=0 x.max=112 x.defl=0
+    //% y.min=0 y.max=6 y.defl=0
     export function oledShowCN(
         x: number,
         y: number,
