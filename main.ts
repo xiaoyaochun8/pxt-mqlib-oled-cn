@@ -50,7 +50,7 @@ namespace mqlib {
         let cy = 0;
         let cNum = 0;
         for (const ch of str) {
-            cy = (y + Math.floor(cNum / 8)) * 16;
+            cy = (y + Math.floor(cNum / 8));
             showCN16oled(cx, cy, ch);
             cx += 16;
             cNum += 1;
