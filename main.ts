@@ -47,9 +47,13 @@ namespace mqlib {
         // color: number
     ) {
         let cx = x;
+        let cy = 0;
+        let cNum = 0;
         for (const ch of str) {
-            showCN16oled(cx, y, ch);
+            cy = (y + Math.floor(cNum / 8)) * 16;
+            showCN16oled(cx, cy, ch);
             cx += 16;
+            cNum += 1;
         }
     }
 
