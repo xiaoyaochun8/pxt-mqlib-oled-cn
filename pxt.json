@@ -10,8 +10,7 @@
     "files": [
         "README.md",
         "main.blocks",
-        "main.ts",
-        "font16oled.ts"
+        "main.ts"
     ],
     "testFiles": [
         "test.ts"
