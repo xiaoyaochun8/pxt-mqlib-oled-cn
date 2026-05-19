@@ -17,7 +17,7 @@ namespace mqlib {
         ch: string,
         // color: number
     ) {
-        const c = findCN16oled(ch);
+        const c = findCN16oledtft(ch);
         if (!c) return;
 
         oledCmd(0xB0 + page);
