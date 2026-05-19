@@ -37,7 +37,7 @@ namespace mqlib {
     //% subcategory="oled"
     //% group='oled-汉字库'
     //% weight=98
-    //% block="oled屏显示中文 $str 在位置x: $x, y: $y"
+    //% block="oled屏显示中文 $str 位置x: $x y: $y"
     //% x.min=0 x.max=112 x.defl=0
     //% y.min=0 y.max=6 y.defl=0
     export function oledShowCN(
@@ -60,27 +60,29 @@ namespace mqlib {
         }
     }
 
-    const OLED_ADDR = 0x3C;
+    //const OLED_ADDR = 0x3C;
 
     function oledCmd(cmd: number) {
         let buf = Buffer.create(2)
         buf[0] = 0x00
         buf[1] = cmd
-        pins.i2cWriteBuffer(OLED_ADDR, buf);
+        let addr = OLED12864_I2C.getAddr()
+        pins.i2cWriteBuffer(addr, buf);
     }
 
     function oledData(dat: number) {
         let buf = Buffer.create(2)
         buf[0] = 0x40
         buf[1] = dat
-        pins.i2cWriteBuffer(OLED_ADDR, buf);
+        let addr = OLED12864_I2C.getAddr()
+        pins.i2cWriteBuffer(addr, buf);
     }
 
     //% subcategory="oled"
     //% group='oled-汉字库'
     //% weight=100
     //% block='oled初始化'
-    export function oledInit() {
+    function oledInit() {
         oledCmd(0xAE);
         oledCmd(0xD5); oledCmd(0x80);
         oledCmd(0xA8); oledCmd(0x3F);
@@ -103,7 +105,7 @@ namespace mqlib {
     //% group='oled-汉字库'
     //% weight=99
     //% block='oled清屏'
-    export function oledClear() {
+    function oledClear() {
         for (let p = 0; p < 8; p++) {
             oledCmd(0xB0 + p);
             oledCmd(0x00);
